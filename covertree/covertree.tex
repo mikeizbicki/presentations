@@ -1,0 +1,239 @@
+\documentclass{beamer}
+% \usetheme{default}
+\usetheme{Boadilla}
+\usepackage[utf8x]{inputenc}
+\usepackage{default}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,graphicx,xcolor,ifthen}
+\usepackage{algorithm,listings}
+\usepackage{algorithmicx,algpseudocode}
+\usepackage{multirow,array,lscape,chngpage,rotating}
+\usepackage{colortbl,calc,fp}
+
+\usepackage{tikz}
+\usetikzlibrary{snakes,patterns,shapes,calc}
+
+\usepackage{listings}
+\lstloadlanguages{Haskell}
+
+\lstnewenvironment{bigcode}
+    %{\lstset{}%
+      %\csname lst@SetFirstLabel\endcsname}
+    %{\csname lst@SaveFirstLabel\endcsname}
+    {
+    \lstset{
+      %basicstyle=\small\ttfamily,
+      basicstyle=\Large\ttfamily,
+      xleftmargin=\parindent,
+      xleftmargin=\parindent,
+      flexiblecolumns=false,
+      keepspaces=true,
+      %frame=single,
+      frame=none,
+      basewidth={0.5em,0.45em},
+      literate={+}{{$+$}}1 {/}{{$/$}}1 {*}{{$*$}}1 {=}{{$=$}}1
+               {>}{{$>$}}1 {<}{{$<$}}1 {\\}{{$\lambda$}}1
+               {\\\\}{{\char`\\\char`\\}}1
+               {->}{{$\rightarrow$}}2 {>=}{{$\geq$}}2 {<-}{{$\leftarrow$}}2
+               {<=}{{$\leq$}}2 {=>}{{$\Rightarrow$}}2
+%                {\ .}{{$\circ$}}2 {\ .\ }{{$\circ$}}2
+               {>>}{{>>}}2 {>>=}{{>>=}}2
+               {|}{{$\mid$}}1
+               {<>}{{$\diamond$}}1
+               {++}{{$\+$}}1
+               {mempty}{{$\epsilon$}}1
+               {Theta}{{$\Theta$}}1
+    }
+    }
+    {}
+
+\lstnewenvironment{code}
+    %{\lstset{}%
+      %\csname lst@SetFirstLabel\endcsname}
+    %{\csname lst@SaveFirstLabel\endcsname}
+    {
+    \lstset{
+      basicstyle=\small\ttfamily,
+      xleftmargin=\parindent,
+      xleftmargin=\parindent,
+      flexiblecolumns=false,
+      keepspaces=true,
+      frame=single,
+      basewidth={0.5em,0.45em},
+      literate={+}{{$+$}}1 {/}{{$/$}}1 {*}{{$*$}}1 {=}{{$=$}}1
+               {>}{{$>$}}1 {<}{{$<$}}1 {\\}{{$\lambda$}}1
+               {\\\\}{{\char`\\\char`\\}}1
+               {->}{{$\rightarrow$}}2 {>=}{{$\geq$}}2 {<-}{{$\leftarrow$}}2
+               {<=}{{$\leq$}}2 {=>}{{$\Rightarrow$}}2
+%                {\ .}{{$\circ$}}2 {\ .\ }{{$\circ$}}2
+               {>>}{{>>}}2 {>>=}{{>>=}}2
+               {|}{{$\mid$}}1
+               {<>}{{$\diamond$}}1
+               {++}{{$\+$}}1
+               {mempty}{{$\epsilon$}}1
+               {Theta}{{$\Theta$}}1
+    }
+    }
+    {}
+%\tikzstyle{blackbox}=[shape=rectangle, draw, fill=black, text=white, minimum width=0.8in]
+\tikzstyle{blackbox}=[shape=rectangle, draw, fill=black, draw=white, draw opacity=0, line width=0.15in, text=white, minimum size=0.3in]
+\tikzstyle{whitebox}=[shape=rectangle, draw, fill=white, draw=black, minimum size=0.3in]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcommand{\h}[1]{\emph{{#1}}}
+\newcommand{\h}[1]{\textup{\lstinline{#1}}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newtheoremstyle{nameddefinition}{}{}{}{}{\bfseries}{}{.5em}{#1: \thmnote{#3}.}
+\theoremstyle{nameddefinition}
+\newtheorem{defn}{Definition}
+
+\newcommand\Algphase[1]{%
+\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+\Statex\hspace*{-\algorithmicindent}\textbf{#1}%
+\vspace*{-.7\baselineskip}\Statex\hspace*{\dimexpr-\algorithmicindent-2pt\relax}\rule{\textwidth}{0.4pt}%
+}
+
+\newcommand{\set}[1]{\ensuremath{\mathcal{{#1}}}}
+%\newcommand{\vector}[1]{\textbf{{{#1}}}}
+\newcommand{\elem}[1]{\textbf{{#1}}}
+\newcommand\op{\ensuremath{\diamond}}
+\newcommand\id{\ensuremath{\mathbf{\epsilon}}}
+\newcommand\+{\op}
+%\newcommand\+{\mdoubleplus}
+\newcommand\doubleplus{+\kern-1.3ex+\kern0.8ex}
+\newcommand\mdoubleplus{\ensuremath{\mathbin{+\mkern-10mu+}}}
+
+\newcommand{\nn}[1]{\ensuremath{\ensuremath{{{#1}}_{nn}}}}
+\newcommand{\dist}[2]{\ensuremath{\ensuremath{d}({{#1}},{{#2}})}}
+\newcommand{\exprad}[1]{\ensuremath{\ensuremath{2}}}
+\newcommand{\pack}{\ensuremath{\text{\ttfamily pack}}}
+\newcommand{\rmNodes}{\ensuremath{\text{\ttfamily rmNodes}}}
+\newcommand{\findnn}{\ensuremath{\text{\ttfamily findNearestNeighbor}}}
+\newcommand{\ctmerge}{\ensuremath{\text{\ttfamily merge}}}
+\newcommand{\ctinsert}{\ensuremath{\text{\ttfamily insert}}}
+\newcommand{\ctinsertHelper}{\ensuremath{\text{\ttfamily insert\_}}}
+\newcommand{\rebalance}{\ensuremath{\text{\ttfamily rebalance}}}
+\newcommand{\rebalanceHelper}{\ensuremath{\text{\ttfamily rebalance\_}}}
+\newcommand{\mkfunction}[1]{\ensuremath{\text{\ttfamily {#1}}}}
+\newcommand{\mkvar}[1]{\ensuremath{\text{\emph{{#1}}}}}
+\newcommand{\nullvar}{\ensuremath{\text{\ttfamily null}}}
+\newcommand{\datapoint}[1]{\ensuremath{\text{\ttfamily dp}({#1})}}
+\newcommand{\level}[1]{\ensuremath{\text{\ttfamily level}({#1})}}
+\newcommand{\sepdist}[1]{\ensuremath{\text{\ttfamily sepdist}({#1})}}
+\newcommand{\covdist}[1]{\ensuremath{\text{\ttfamily covdist}({#1})}}
+\newcommand{\children}[1]{\ensuremath{\text{\ttfamily children}({#1})}}
+\newcommand{\descendants}[1]{\ensuremath{\text{\ttfamily descendants}({#1})}}
+\newcommand{\maxdist}[1]{\ensuremath{\text{\ttfamily maxdist}({#1})}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author {Mike Izbicki}
+\institute{UC Riverside}
+\title[Simplified Cover Trees]{}
+
+\newcommand \imgpath[1]{/home/user/docs/phd/presentation_lib/{#1}}
+
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline for section \thesection}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+
+ \beamertemplatenavigationsymbolsempty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{NumMonoids}
+
+\definecolor{lightred}{RGB}{255,200,200}
+\definecolor{lightgreen}{RGB}{200,255,200}
+\definecolor{lightblue}{RGB}{200,200,255}
+\definecolor{darkred}{RGB}{127,0,0}
+\definecolor{darkgreen}{RGB}{0,127,0}
+\definecolor{darkblue}{RGB}{0,0,127}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\spacer}[1]{
+    \begin{frame}
+    \begin{center}
+    \Huge\em{#1}
+    \end{center}
+    \end{frame}
+}
+
+\begin{frame}[fragile]{Faster nearest neighbor queries with simplified cover trees}
+%\vspace{-0.5cm}
+by Mike Izbicki
+
+\vspace{1cm}
+\begin{tabular}{p{7cm}p{4.5cm}}
+\hspace{-0.5cm}
+\includegraphics[height=6.5cm]{slides/distance.jpg}&
+\vspace{-2.3in}
+outline:
+\begin{enumerate}
+\item motivation
+\item metric spaces
+\item other data structures
+\item simplified cover tree
+\item nearest ancestor tree
+\item experiments
+\item open problems
+\end{enumerate}
+\end{tabular}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{slides/knn}
+\input{slides/kd-oct-tree}
+
+\input{slides/metricspace}
+\input{slides/metrics-protein}
+\input{slides/metrics-image}
+\input{slides/metrics-learned}
+
+\input{slides/runtimes}
+\input{slides/doublingconstant}
+
+\input{slides/contributions-simplified}
+\input{slides/contributions-ancestor}
+\input{slides/contributions-cache}
+\input{slides/contributions-merge}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Summary}
+
+\Large
+
+You should use cover trees.
+
+\vspace{0.35in}
+We made them easier to implement and faster.
+
+\vspace{0.35in}
+%\rule{\textwidth}{1pt}
+%\vspace{-0.10in}
+
+All the code is licensed under the BSD3 and available at:
+
+\begin{center}
+\url{http://github.com/mikeizbicki/hlearn}
+\end{center}
+
+%It's written in Haskell.
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+

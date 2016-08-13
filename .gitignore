@@ -1,0 +1,10 @@
+*.sty
+*.log
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.swp
+*.directory
