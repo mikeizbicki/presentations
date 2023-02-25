@@ -1,0 +1,293 @@
+\documentclass{beamer}
+% \usetheme{default}
+\usetheme{Boadilla}
+%\useoutertheme{split}
+\setbeamertemplate{navigation symbols}{}
+
+%\usepackage[utf8x]{inputenc}
+\usepackage{default}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,graphicx,xcolor,ifthen}
+\usepackage{algorithm,listings}
+\usepackage{algorithmicx,algpseudocode}
+\usepackage{multirow,array,lscape,chngpage,rotating}
+\usepackage{colortbl,calc,fp}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+%\usepackage{CJKutf8}
+%\usepackage[hangul]{kotexutf}
+%\usepackage[T1]{fontenc}
+\usepackage{CJKutf8}
+
+\newcommand{\ignore}[1]{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{Mike Izbicki}
+\institute{mike@izbicki.me}
+\title{Teaching at PUST}
+\date{3 June 2022}
+
+\newcommand{\imgslide}[1]{
+{
+\usebackgroundtemplate{\includegraphics[width=5.1in]{#1} }
+\begin{frame}{}
+\end{frame}
+}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setbeamercolor{background canvas}{bg=black,fg=white,text=white}
+
+\begin{document}
+
+%\imgslide{img/pust-monument8}
+{
+\setbeamertemplate{footline}{} 
+\usebackgroundtemplate{\includegraphics[width=5.1in]{img/pust-monument8} }
+\begin{frame}{}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\color{darkred}
+{
+\raggedleft
+\LARGE
+Teaching Math in North Korea as a Christian
+
+\Large
+
+\vspace{0.2in}
+~~~~~~~~~~~~~~~~~~~~~~\parbox{5in}{
+Mike Izbicki
+
+Assistant Professor (Claremont McKenna)
+
+Professor and CS Department Chair (PUST)
+}
+}
+    \vspace{2in}
+
+%\begin{center}
+%The Pyongyang University
+%
+%of Science and Technology
+%\end{center}
+%
+%\vspace{0.25in}
+%\begin{CJK}{UTF8}{mj}
+%평양과학기술대학교
+%\end{CJK}
+%\vspace{1.85in}
+\end{frame}
+}
+
+
+\imgslide{img/pust-cs-marching2}
+\imgslide{img/icopust-me3}
+%\imgslide{img/google-maps}
+\imgslide{img/students-working.png}
+\imgslide{img/garden}
+%\imgslide{img/pust-grass1}
+\imgslide{img/animals-goats2}
+\imgslide{img/pust-food}
+\imgslide{img/pust-sports}
+\imgslide{img/sportsday-class3}
+\imgslide{img/building-guesthouse}
+\imgslide{img/church-1}
+
+\begin{frame}{}
+\LARGE
+    \begin{quote}
+        {\color{red}
+    Love your enemies and pray for those who persecute you.
+        }
+    
+    Matt 5:44
+    \end{quote}
+
+    %\vspace{1in}
+    %\pause
+    %Loving North Korea actually benefits US.
+
+    %\vspace{0.3in}
+    %\begin{quote}
+    %As far as it depends on you, live at peace with everyone.
+   % 
+    %Romans 12:18
+    %\end{quote}
+\end{frame}{}
+
+\begin{frame}{Is it legal to love \emph{this} enemy in \emph{this} way?}
+\includegraphics[width=4.75in,clip,trim=0 0.3in 0 0.3in]{img/parade}
+
+\vspace{0.1in}
+PUST work is approved by the US State Department
+
+\vspace{0.1in}
+Curriculum curated to not violate any US/EU/UN sanctions
+
+\vspace{0.1in}
+Personally, I'm a former US nuclear submarine officer/NSA employee
+
+\pause
+\vspace{0.1in}
+\textbf{All of PUST's work increases US national security.
+}
+\end{frame}
+
+\begin{frame}{Example 1: Better Language Skills}
+    \begin{quote}
+        \Large
+
+        I played with my teacher's cock.
+
+        \vspace{0.2in}
+        - student, 2015
+    \end{quote}
+\end{frame}
+
+\begin{frame}{Example 2: Using the Internet}
+    \includegraphics[width=4.75in]{img/the-onion}
+
+    %Students thought this Onion article was real.
+\end{frame}
+
+\begin{frame}{Example 2: Using the Internet}
+    \centering
+    \includegraphics[width=4.25in]{img/google-maps}
+
+    %Students thought this Onion article was real.
+%\imgslide{}
+\end{frame}
+
+\begin{frame}{Example 3: Developing for the Internet}
+    \includegraphics[width=4.75in]{img/kcna-2022-02-22}
+%\imgslide{img/kcna-2022-02-22}
+%\imgslide{img/kcna-google}
+\end{frame}
+
+\begin{frame}{Example 3: Developing for the Internet}
+    \includegraphics[width=4.75in]{img/kcna-google}
+\end{frame}
+
+\begin{frame}{Example 4: Better Medical Devices}
+    \centering
+    \includegraphics[width=2.05in]{img/medical-device}
+%\imgslide{img/kcna-2022-02-22}
+%\imgslide{img/kcna-google}
+\end{frame}
+
+\begin{frame}{}
+    %PUST is WAAAAAAAY understaffed
+%
+    %Whatever your skill-set, we can find a way to "use" you
+%
+    %Minimum workload for teaching a course is about 40hr/semester
+
+    \Large
+    %Learn more: \url{https://izbicki.me/pust}
+%
+    %~~~ username: \texttt{guest}
+%
+    %~~~ password: \texttt{trip-to-pust}
+
+    Learn more:
+
+    ~~~ \url{https://pust.co}
+
+    ~~~ \url{https://guest:trip-to-pust@izbicki.me/pust}
+
+    \vspace{0.2in}
+    Contribute:
+    \begin{itemize}
+        \item teach a class (in person / remote)
+        \item review a masters thesis
+        \item colloquium presentation
+        \item present at ICOPUST
+        \item monthly zoom faculty meeting
+    \end{itemize}
+
+    \vspace{0.2in}
+    Contact me: \url{mike@izbicki.me}
+\end{frame}
+
+
+
+
+
+
+%\begin{slide}{PUST in Numbers}
+%5 Departments
+    %\begin{itemize}
+        %\item Farming, Business, Foreign Languages, Medical, Engineering
+    %\end{itemize}
+%\end{slide}
+
+\newcounter{framenumberappendix}
+\setcounter{framenumberappendix}{\value{framenumber}}
+
+\imgslide{img/myohyangsan-scenic}
+\imgslide{img/kimchi-pizza}
+\imgslide{img/amazing-grace}
+\imgslide{img/pyongyang-subway-entrance2}
+\imgslide{img/korean-burrito}
+\imgslide{img/pyongyang-diplomatsclub-pool2}
+\imgslide{img/pyongyang-polish-concert5.jpg}
+\imgslide{img/pyongyang-church-chilgol2}
+
+\imgslide{img/pyongyang-fountain4}
+\imgslide{img/pyongyang-subway-escalator2}
+\imgslide{img/pyongyang-subway-terminal7}
+\imgslide{img/pust-entrance}
+
+\ignore{
+\imgslide{img/sportsday-dancing2}
+
+\imgslide{img/guesthouse-room1}
+\imgslide{img/me-suit1}
+\imgslide{img/pust-night-dorms2}
+\imgslide{img/pust-fall-students2}
+\imgslide{img/pust-sign2}
+\imgslide{img/building-dprk}
+\imgslide{img/building-guardshack}
+\imgslide{img/pust-path}
+\imgslide{img/building-greenhouse}
+\imgslide{img/pust-question2}
+\imgslide{img/pust-snow-me2}
+\imgslide{img/pust-snowman2}
+\imgslide{img/pust-snow-car}
+
+
+%Out in the town
+
+\imgslide{img/ryongak-bus}
+\imgslide{img/pyongyang-reunification-arch2}
+\imgslide{img/pyongyang-band3}
+\imgslide{img/pyongyang-volleyball}
+\imgslide{img/pyongyang-danceparty}
+\imgslide{img/ryongak-drunklocal2}
+\imgslide{img/ryongak-pagoda-children3}
+
+\imgslide{img/ryongak-dragon3}
+\imgslide{img/ryongak-me-dragon3}
+\imgslide{img/ryongak-children2}
+\imgslide{img/ryongak-children4}
+\imgslide{img/ryongak-monument3}
+
+\imgslide{img/myohyangsan-map}
+\imgslide{img/myohyangsan15}
+\imgslide{img/myohyangsan-guides}
+
+\imgslide{img/pyongyang-subway-me2}
+
+
+%church
+\imgslide{img/pyongyang-church-locals}
+\imgslide{img/pyongyang-church-chilgol5}
+
+\imgslide{img/me-airport}
+\imgslide{img/pyongyang-diplomatsclub1}
+}
+
+\addtocounter{framenumberappendix}{-\value{framenumber}}
+\addtocounter{framenumber}{\value{framenumberappendix}} 
+\end{document}
+
